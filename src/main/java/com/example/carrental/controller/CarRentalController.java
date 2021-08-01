@@ -3,6 +3,8 @@ package com.example.carrental.controller;
 import com.example.carrental.dto.CreateReservationDTO;
 import com.example.carrental.dto.ReservationDTO;
 import com.example.carrental.service.CarRentalService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

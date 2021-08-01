@@ -14,7 +14,13 @@ import java.util.ArrayList;
 @Service
 public class CarRentalService {
 
+    private UserService userService;
 
+    public CarRentalService(UserService userService) {
+        this.userService = userService;
+    }
+
+    //TO DO zrobic stan liczby samochodow i odejmowac przy wynajmie
     public ArrayList<Car> getAvailableCars(){
 
         return  Lists.newArrayList(new Car(1,  "Mazda 3",  "petrol",  2019,  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. " +
@@ -52,10 +58,20 @@ public class CarRentalService {
 
     public ArrayList<ReservationDTO> getRentsByUserId(String userId) {
 
-        return Lists.newArrayList(new ReservationDTO(new Car(6,  "Seat Leon",  "petrol",  2020,  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. " +
-                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to " +
-                "make a type specimen book. ",  8000, "../assets/seat-leon.jpg"), "2021-07-11T22:00:00.000Z", "2021-07-15T22:00:00.000Z"));
+        if(userService.isAdmin()){
+            return Lists.newArrayList(new ReservationDTO(new Car(6,  "Seat Leon",  "petrol",  2020,  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. " +
+                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to " +
+                    "make a type specimen book. ",  8000, "../assets/seat-leon.jpg"), "2021-07-11T22:00:00.000Z", "2021-07-15T22:00:00.000Z","Krakow"),
+                    new ReservationDTO(new Car(7,  "Mazda CX3",  "petrol",  2021,  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. " +
+                            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to " +
+                            "make a type specimen book. ",  8000, "../assets/seat-leon.jpg"), "2021-08-11T22:00:00.000Z", "2021-08-15T22:00:00.000Z","Katowice"));
 
+        } else {
+
+            return Lists.newArrayList(new ReservationDTO(new Car(6, "Seat Leon", "petrol", 2020, "Lorem Ipsum is simply dummy text of the printing and typesetting industry. " +
+                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to " +
+                    "make a type specimen book. ", 8000, "../assets/seat-leon.jpg"), "2021-07-11T22:00:00.000Z", "2021-07-15T22:00:00.000Z", "Krakow"));
+        }
 
     }
 }
