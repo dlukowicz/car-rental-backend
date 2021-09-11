@@ -5,9 +5,8 @@ import lombok.Data;
 @Data
 public class CreateReservationDTO {
 
-    //TODO przekazc uzytwkonika ktory zarezerwowal
-
-    private int carId;
+    private Integer carId;
+    private Long userId;
     private String name;
     private String surname;
     private String email;

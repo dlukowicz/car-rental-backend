@@ -1,11 +1,23 @@
 package com.example.carrental.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
+import org.springframework.context.annotation.Primary;
+
+import javax.persistence.*;
+import java.util.UUID;
 
 @Data
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Car {
-
-    private int id;
+//TODO price i liczb aut
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String name;
     private String fuel;
     private int year;
@@ -13,20 +25,6 @@ public class Car {
     private float mileage;
     private String imgsrc;
 
-    //TODO remove
-    public Car(int id, String name, String fuel, int year, String description,
-               float mileage, String imgsrc) {
-        this.id = id;
-        this.name = name;
-        this.fuel = fuel;
-        this.year = year;
-        this.description = description;
-        this.mileage = mileage;
-        this.imgsrc = imgsrc;
-    }
 
 
-    public Car() {
-
-    }
 }

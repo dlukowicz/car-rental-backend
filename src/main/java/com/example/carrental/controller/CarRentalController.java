@@ -2,9 +2,8 @@ package com.example.carrental.controller;
 
 import com.example.carrental.dto.CreateReservationDTO;
 import com.example.carrental.dto.ReservationDTO;
-import com.example.carrental.service.CarRentalService;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import com.example.carrental.service.CarReservationService;
+import com.example.carrental.service.CarService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -15,19 +14,19 @@ import java.util.ArrayList;
 public class CarRentalController {
 
 
-    private CarRentalService carRentalService;
+    private CarReservationService carReservationService;
 
-    public CarRentalController(CarRentalService carRentalService) {
-        this.carRentalService = carRentalService;
+    public CarRentalController(CarReservationService carReservationService) {
+        this.carReservationService = carReservationService;
     }
 
     @PostMapping()
-    public CreateReservationDTO createRent(@RequestBody CreateReservationDTO createReservationDTO) {
-        return carRentalService.createReservation(createReservationDTO);
+    public void createRent(@RequestBody CreateReservationDTO createReservationDTO) {
+         carReservationService.createReservation(createReservationDTO);
     }
 
     @GetMapping("/{userId}")
-    public ArrayList<ReservationDTO> getRentsByUserId(@PathVariable String userId) {
-        return carRentalService.getRentsByUserId(userId);
+    public ArrayList<ReservationDTO> getRentsByUserId(@PathVariable Long userId) {
+        return carReservationService.getRentsByUserId(userId);
     }
 }
