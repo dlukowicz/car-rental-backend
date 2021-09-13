@@ -25,8 +25,13 @@ public class CarRentalController {
          carReservationService.createReservation(createReservationDTO);
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/user/{userId}")
     public ArrayList<ReservationDTO> getRentsByUserId(@PathVariable Long userId) {
         return carReservationService.getRentsByUserId(userId);
+    }
+
+    @DeleteMapping
+    public void completeRental(@RequestBody ReservationDTO reservationDTO){
+        carReservationService.completeReservation(reservationDTO);
     }
 }

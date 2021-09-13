@@ -32,6 +32,7 @@ public class CarReservationService {
     public void createReservation(CreateReservationDTO createReservationDTO) {
         log.info("Create reservation " + createReservationDTO);
 
+        carService.rentCar(createReservationDTO.getCarId());
         carReservationRepository.save(mapToReservation(createReservationDTO));
 
     }
@@ -52,6 +53,11 @@ public class CarReservationService {
         }
     }
 
+    public void completeReservation(ReservationDTO reservationDTO){
+        carService.completeRentCar(reservationDTO.getCar().getId());
+        carReservationRepository.deleteById(reservationDTO.getReservationId());
+    }
+
     private ArrayList<ReservationDTO> mapToReservationDtoList(List<Reservation> reservations) {
         ArrayList<ReservationDTO> reservationDTOList = new ArrayList<>();
 
@@ -65,6 +71,7 @@ public class CarReservationService {
 
     private ReservationDTO mapToReservationDto(Reservation reservation) {
         ReservationDTO reservationDTO = new ReservationDTO();
+        reservationDTO.setReservationId(reservation.getReservationId());
         reservationDTO.setCar(reservation.getCarId());
         reservationDTO.setLocation(reservation.getLocation());
         //TODO dopisac date start date end

@@ -7,6 +7,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Data
@@ -24,6 +25,8 @@ public class Car {
     private String description;
     private float mileage;
     private String imgsrc;
+    private Integer count;
+    private Float price;
 
 
 

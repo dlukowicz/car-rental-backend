@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReservationDTO {
-
+    private Integer reservationId;
     private Car car;
     private String startDate;
     private String endDate;

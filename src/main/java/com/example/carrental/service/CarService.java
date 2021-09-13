@@ -30,12 +30,26 @@ public class CarService {
 
     //TO DO zrobic stan liczby samochodow i odejmowac przy wynajmie
     public List<CarDTO> getAvailableCars(){
-        List<Car> cars = carRepository.findAll();
+        List<Car> cars = carRepository.findByCountGreaterThan(0);
         return mapToDtoList(cars);
     }
 
     public Optional<Car> getCarInfo(Integer carId){
        return carRepository.findById(carId);
+    }
+
+    public void rentCar(Integer carId){
+        Optional<Car> car = getCarInfo(carId);
+        if(car.isPresent()){
+            car.get().setCount(car.get().getCount()-1);
+        }
+    }
+
+    public void completeRentCar(Integer carId){
+        Optional<Car> car = getCarInfo(carId);
+        if(car.isPresent()){
+            car.get().setCount(car.get().getCount()+1);
+        }
     }
 
 
@@ -44,7 +58,7 @@ public class CarService {
         for(int i=0; i<cars.size(); ++i){
             carDTOList.add(new CarDTO(cars.get(i).getId(), cars.get(i).getName(), cars.get(i).getFuel(), cars.get(i).getYear(),
                     cars.get(i).getDescription(), cars.get(i).getMileage(),
-                    cars.get(i).getImgsrc()));
+                    cars.get(i).getImgsrc(),cars.get(i).getCount(), cars.get(i).getPrice()));
         }
         return carDTOList;
 

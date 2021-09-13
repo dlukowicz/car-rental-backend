@@ -13,5 +13,7 @@ public class CarDTO {
     private String description;
     private float mileage;
     private String imgsrc;
+    private Integer count;
+    private Float price;
 
 }
