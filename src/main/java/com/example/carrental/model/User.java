@@ -7,8 +7,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long userId;
     private String username;
     private String password;

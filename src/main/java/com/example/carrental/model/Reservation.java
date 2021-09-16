@@ -25,14 +25,28 @@ public class Reservation {
     private String surname;
     private String email;
     private String location;
+    private String startDate;
+    private String endDate;
 
-
-    public Reservation(Car car, User user, String name, String surname, String email, String location) {
+    public Reservation(Car car, User user, String name, String surname, String email, String location, String startDate, String endDate) {
         this.carId = car;
         this.user = user;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.location = location;
+        this.startDate = startDate;
+        this.endDate = endDate;
+
     }
+
+
+//    public Reservation(Car car, User user, String name, String surname, String email, String location) {
+//        this.carId = car;
+//        this.user = user;
+//        this.name = name;
+//        this.surname = surname;
+//        this.email = email;
+//        this.location = location;
+//    }
 }

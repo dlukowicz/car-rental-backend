@@ -74,7 +74,8 @@ public class CarReservationService {
         reservationDTO.setReservationId(reservation.getReservationId());
         reservationDTO.setCar(reservation.getCarId());
         reservationDTO.setLocation(reservation.getLocation());
-        //TODO dopisac date start date end
+        reservationDTO.setStartDate(reservation.getStartDate());
+        reservationDTO.setEndDate(reservation.getEndDate());
 
         return reservationDTO;
 
@@ -83,7 +84,7 @@ public class CarReservationService {
     private Reservation mapToReservation(CreateReservationDTO createReservationDTO) {
         Car car = carService.getCarInfo(createReservationDTO.getCarId()).orElse(null);
         User user = userService.getUserById(createReservationDTO.getUserId()).orElse(null);
-        return new Reservation(car, user, createReservationDTO.getName(), createReservationDTO.getSurname(), createReservationDTO.getEmail(), createReservationDTO.getLocation());
+        return new Reservation(car, user, createReservationDTO.getName(), createReservationDTO.getSurname(), createReservationDTO.getEmail(), createReservationDTO.getLocation(), createReservationDTO.getStartDate().toString(), createReservationDTO.getEndDate().toString());
     }
 
 

@@ -2,6 +2,8 @@ package com.example.carrental.dto;
 
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
 public class CreateReservationDTO {
 
@@ -11,8 +13,8 @@ public class CreateReservationDTO {
     private String surname;
     private String email;
     private String location;
-    private String startDate;
-    private String endDate;
+    private LocalDate startDate;
+    private LocalDate  endDate;
 
 
 }
