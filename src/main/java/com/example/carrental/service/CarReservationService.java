@@ -30,8 +30,6 @@ public class CarReservationService {
     }
 
     public void createReservation(CreateReservationDTO createReservationDTO) {
-        log.info("Create reservation " + createReservationDTO);
-
         carService.rentCar(createReservationDTO.getCarId());
         carReservationRepository.save(mapToReservation(createReservationDTO));
 
@@ -84,7 +82,9 @@ public class CarReservationService {
     private Reservation mapToReservation(CreateReservationDTO createReservationDTO) {
         Car car = carService.getCarInfo(createReservationDTO.getCarId()).orElse(null);
         User user = userService.getUserById(createReservationDTO.getUserId()).orElse(null);
-        return new Reservation(car, user, createReservationDTO.getName(), createReservationDTO.getSurname(), createReservationDTO.getEmail(), createReservationDTO.getLocation(), createReservationDTO.getStartDate().toString(), createReservationDTO.getEndDate().toString());
+        return new Reservation(car, user, createReservationDTO.getName(), createReservationDTO.getSurname(), createReservationDTO.getEmail(),
+                createReservationDTO.getLocation(), createReservationDTO.getStartDate().toString(),
+                createReservationDTO.getEndDate().toString());
     }
 
 

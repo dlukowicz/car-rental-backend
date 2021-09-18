@@ -28,7 +28,6 @@ public class CarService {
         this.carRepository = carRepository;
     }
 
-    //TO DO zrobic stan liczby samochodow i odejmowac przy wynajmie
     public List<CarDTO> getAvailableCars(){
         List<Car> cars = carRepository.findByCountGreaterThan(0);
         return mapToDtoList(cars);

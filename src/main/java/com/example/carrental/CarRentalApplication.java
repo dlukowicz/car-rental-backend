@@ -11,5 +11,3 @@ public class CarRentalApplication {
 	}
 
 }
-
-//TODO 2 role w systemie user i admin admin zwalania rezerwacje + wyswietlac ile sztuk danego auta jest dostepnego

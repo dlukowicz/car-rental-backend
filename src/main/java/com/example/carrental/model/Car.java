@@ -15,7 +15,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Car {
-//TODO price i liczb aut
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -27,7 +26,6 @@ public class Car {
     private String imgsrc;
     private Integer count;
     private Float price;
-
 
 
 }

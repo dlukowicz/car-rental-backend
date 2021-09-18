@@ -15,8 +15,5 @@ public class ReservationDTO {
     private String endDate;
     private String location;
 
-    // add user and display info about user in reservation
-
-
 
 }

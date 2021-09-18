@@ -25,22 +25,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication().passwordEncoder(NoOpPasswordEncoder.getInstance())
-//                .withUser("admin").password("admin1pass").roles("USER", "ADMIN").and()
-//                .withUser("user1").password("user1pass").roles("USER").and()
-//                .withUser("user2").password("user2pass").roles("USER").and()
-//                .withUser("user3").password("user3pass").roles("USER");
-//    }
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
     }
 
-
-    //TODO reservations zabronic
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().

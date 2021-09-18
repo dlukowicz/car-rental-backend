@@ -40,13 +40,4 @@ public class Reservation {
 
     }
 
-
-//    public Reservation(Car car, User user, String name, String surname, String email, String location) {
-//        this.carId = car;
-//        this.user = user;
-//        this.name = name;
-//        this.surname = surname;
-//        this.email = email;
-//        this.location = location;
-//    }
 }

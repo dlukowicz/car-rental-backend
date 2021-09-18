@@ -1,11 +1,8 @@
 package com.example.carrental.controller;
 
 
-import com.example.carrental.configuration.AuthenticationBean;
 import com.example.carrental.dto.UserDTO;
 import com.example.carrental.service.UserService;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
