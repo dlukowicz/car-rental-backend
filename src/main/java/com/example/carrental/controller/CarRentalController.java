@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-@CrossOrigin()
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/reservations")
 public class CarRentalController {
 
